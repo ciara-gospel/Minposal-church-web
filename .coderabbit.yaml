@@ -1,0 +1,147 @@
+# yaml-language-server: $schema=https://coderabbit.ai/integrations/schema.v2.json
+
+language: fr-FR
+early_access: false
+enable_free_tier: true
+
+# Knowledge base settings
+knowledge_base:
+  opt_out: false
+  web_search:
+    enabled: true
+  code_guidelines:
+    enabled: true
+    filePatterns:
+      - '**/*.ts'
+      - '**/*.tsx'
+      - '**/*.js'
+      - '**/*.jsx'
+      - '**/*.json'
+      - '**/*.md'
+  learnings:
+    scope: auto
+  issues:
+    scope: auto
+  pull_requests:
+    scope: auto
+
+# Educational tone in French
+tone_instructions: |
+  Ingenieur logiciel senior et mentor. Expliquer POURQUOI les patterns sont meilleurs, 
+  fournir du contexte dapprentissage, referencer les meilleures pratiques.
+  Etre encourageant tout en maintenant les standards de qualite.
+
+# Code generation settings
+code_generation:
+  docstrings:
+    language: fr-FR
+    path_instructions:
+      - path: 'src/components/**/*.{ts,tsx}'
+        instructions: 'Documenter les composants React: but, props, gestion du state, accessibilite.'
+      - path: 'src/app/**/*.{ts,tsx}'
+        instructions: 'Documenter Next.js App Router: routing, data fetching, SEO.'
+      - path: 'src/hooks/**/*.{ts,tsx}'
+        instructions: 'Documenter les hooks personnalises: but, dependances, effets secondaires.'
+
+  unit_tests:
+    path_instructions:
+      - path: '**/*.test.{ts,tsx,js,jsx}'
+        instructions: 'Guide de test des composants: interactions utilisateur, accessibilite.'
+      - path: '**/*.spec.{ts,tsx,js,jsx}'
+        instructions: 'Guide des tests unitaires: fonctions utilitaires, hooks.'
+
+# Chat settings
+chat:
+  auto_reply: true
+
+# Review profile
+reviews:
+  profile: chill
+  request_changes_workflow: true
+  high_level_summary: true
+  high_level_summary_placeholder: '@coderabbitai summary'
+  high_level_summary_in_walkthrough: true
+  auto_title_placeholder: '@coderabbitai'
+  auto_title_instructions: 'Creer des titres focalises sur les changements UI, ameliorations architecturales'
+  review_status: true
+  commit_status: true
+  fail_commit_status: false
+  collapse_walkthrough: false
+  changed_files_summary: true
+
+  # Path-specific review instructions
+  path_instructions:
+    - path: 'src/components/landing/**/*.{ts,tsx}'
+      instructions: 'Revoir les composants de la landing page: Hero, AboutUs, MissionActions, Branches, WhyChooseUs, Contact.Verifier animations, accessibilite, responsive design.'
+
+    - path: 'src/components/layout/**/*.{ts,tsx}'
+      instructions: 'Revoir les composants de layout: Navbar, Footer.Verifier navigation, liens, accessibilite.'
+
+    - path: 'src/app/**/*.{ts,tsx}'
+      instructions: 'Revoir les pages Next.js: App Router patterns, layouts, loading states.'
+
+    - path: 'app/globals.css'
+      instructions: 'Revoir le CSS global: variables Tailwind, animations, theme couleurs (primary: #f2c94c, secondary: #219653, destructive: #eb5757).'
+
+    - path: 'src/app/layout.tsx'
+      instructions: 'Revoir le layout principal: meta tags SEO, font setup, providers.'
+
+    - path: 'package.json'
+      instructions: 'Revoir les dependances: Next.js 16, React 19, Tailwind 4, lucide-react.'
+
+  # Frontend-specific labeling
+  labeling_instructions:
+    - label: 'ui-design'
+      instructions: 'Appliquer quand des ameliorations dinterface utilisateur sont suggerees'
+    - label: 'accessibility'
+      instructions: 'Appliquer quand des ameliorations daccessibilite sont suggerees'
+    - label: 'performance'
+      instructions: 'Appliquer quand des optimisations de performance sont suggerees'
+    - label: 'responsive'
+      instructions: 'Appliquer quand des ameliorations responsive design sont necessaires'
+    - label: 'animation'
+      instructions: 'Appliquer quand des animations ou transitions sont concernees'
+
+  # Filter paths that dont need review
+  path_filters:
+    - '!node_modules/**'
+    - '!.next/**'
+    - '!out/**'
+    - '!dist/**'
+    - '!build/**'
+    - '!coverage/**'
+    - '!*.log'
+    - '!package-lock.json'
+    - '!yarn.lock'
+    - '!.env.local'
+    - '!.git/**'
+
+  # Auto review settings
+  auto_review:
+    enabled: true
+    auto_incremental_review: true
+    drafts: false
+    base_branches:
+      - 'main'
+      - 'master'
+      - 'develop'
+    ignore_title_keywords:
+      - 'wip'
+      - 'draft'
+      - 'fix'
+
+  # Finishing touches
+  finishing_touches:
+    docstrings:
+      enabled: true
+    unit_tests:
+      enabled: true
+
+  # Development tools integration
+  tools:
+    eslint:
+      enabled: true
+    actionlint:
+      enabled: false
+
+  auto_apply_labels: true
