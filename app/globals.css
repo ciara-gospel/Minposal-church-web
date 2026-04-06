@@ -1,26 +1,71 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
 :root {
+  /* Couleurs tirées du logo */
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #1a1a1a; /* Noir doux pour le texte */
+
+  /* Le Jaune/Or dominant du logo */
+  --primary: #f2c94c;
+  --primary-foreground: #1a1a1a;
+
+  /* Le Vert du logo (pour les actions de croissance, succès) */
+  --secondary: #219653;
+  --secondary-foreground: #ffffff;
+
+  /* Le Rouge du logo (pour les accents importants) */
+  --destructive: #eb5757;
+  --destructive-foreground: #ffffff;
+
+  /* Couleurs de soutien */
+  --muted: #f3f4f6;
+  --muted-foreground: #6b7280;
+
+  --accent: #fef3c7; /* Un jaune très clair pour les fonds de cartes */
+  --accent-foreground: #92400e;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #121212;
+    --foreground: #f2f2f2;
+
+    --primary: #f2c94c; /* On garde l'or même en sombre */
+    --primary-foreground: #1a1a1a;
+
+    --muted: #1f2937;
+    --muted-foreground: #9ca3af;
+
+    --accent: #451a03;
+    --accent-foreground: #fef3c7;
   }
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
 }
