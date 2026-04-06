@@ -122,9 +122,7 @@ reviews:
     auto_incremental_review: true
     drafts: false
     base_branches:
-      - 'main'
-      - 'master'
-      - 'develop'
+      - 'development'
     ignore_title_keywords:
       - 'wip'
       - 'draft'
