@@ -4,34 +4,35 @@ import { Music, Users, BookOpen, Flame, Globe } from 'lucide-react';
 
 const activities = [
   {
-    icon: <Music className="text-secondary h-8 w-8" />,
     title: 'Louange & Adoration',
     description:
-      'Une atmosphère unique pour célébrer Dieu à travers des melodies et lui rendre la gloire.',
+      'Une atmosphère unique pour célébrer Dieu à travers des mélodies et lui rendre la gloire.',
+    iconColor: 'text-secondary',
   },
   {
-    icon: <BookOpen className="text-primary h-8 w-8" />,
     title: 'Enseignement Biblique',
     description:
       'Approfondir la parole de Dieu pour une fondation spirituelle solide et équilibrée.',
+    iconColor: 'text-primary',
   },
   {
-    icon: <Users className="text-secondary h-8 w-8" />,
     title: 'Fraternité',
     description:
       'Bâtir une communauté soudée où chaque membre est soutenu et valorisé.',
+    iconColor: 'text-secondary',
   },
   {
-    icon: <Flame className="text-primary h-8 w-8" />,
     title: 'Éveil Spirituel',
     description:
       'Encourager la croissance personnelle et la découverte des dons spirituels.',
+    iconColor: 'text-primary',
   },
 ];
 
 export default function MissionActions() {
   return (
-    <section id="mission" className="relative overflow-hidden bg-white py-24">
+    <section id="mission" className="relative overflow-hidden py-24">
+      <div className="to-muted/30 dark:to-muted absolute inset-0 bg-gradient-to-b from-white dark:from-gray-900"></div>
       <div className="bg-primary/10 absolute top-10 left-0 h-40 w-40 rounded-full blur-2xl"></div>
       <div className="bg-secondary/10 absolute right-0 bottom-10 h-60 w-60 rounded-full blur-2xl"></div>
 
@@ -40,7 +41,7 @@ export default function MissionActions() {
           <p className="text-secondary mb-6 text-xl font-bold tracking-[0.2em] uppercase">
             Notre Mission
           </p>
-          <h2 className="text-background mb-6 text-3xl font-extrabold md:text-4xl">
+          <h2 className="text-foreground mb-6 text-3xl font-extrabold md:text-4xl">
             Ce que nous faisons pour la{' '}
             <span className="text-primary">Gloire de Dieu</span>
           </h2>
@@ -55,13 +56,24 @@ export default function MissionActions() {
           {activities.map((item, index) => (
             <div
               key={index}
-              className="group animate-fade-in-up border-muted/15 hover:border-primary/30 rounded-2xl border bg-white p-8 opacity-0 transition-all hover:-translate-y-2 hover:shadow-xl"
+              className="group animate-fade-in-up rounded-2xl bg-white/70 p-8 opacity-0 shadow-lg backdrop-blur-sm transition-all hover:-translate-y-2 hover:shadow-xl dark:bg-gray-800/70"
               style={{ animationDelay: `${0.2 + index * 0.1}s` }}
             >
               <div className="bg-muted group-hover:bg-primary/10 mb-4 w-fit rounded-xl p-4 transition-transform group-hover:scale-110">
-                {item.icon}
+                {index === 0 && (
+                  <Music className={`h-8 w-8 ${item.iconColor}`} />
+                )}
+                {index === 1 && (
+                  <BookOpen className={`h-8 w-8 ${item.iconColor}`} />
+                )}
+                {index === 2 && (
+                  <Users className={`h-8 w-8 ${item.iconColor}`} />
+                )}
+                {index === 3 && (
+                  <Flame className={`h-8 w-8 ${item.iconColor}`} />
+                )}
               </div>
-              <h4 className="text-secondary group-hover:text-primary mb-3 text-xl font-bold transition-colors">
+              <h4 className="text-foreground group-hover:text-primary mb-3 text-xl font-bold transition-colors">
                 {item.title}
               </h4>
               <p className="text-muted-foreground text-sm leading-relaxed">
@@ -76,14 +88,14 @@ export default function MissionActions() {
             <Globe className="h-10 w-10 text-white" />
           </div>
           <div>
-            <h4 className="text-background mb-2 text-2xl font-bold">
+            <h4 className="text-foreground mb-2 text-2xl font-bold">
               Notre Rayonnement
             </h4>
             <p className="text-muted-foreground leading-relaxed">
               Au-delà de nos murs, nous nous engageons à porter le message de
-              paix et d&apos;amour dans notre pays le cameroun et partout
+              paix et d&apos;amour dans notre pays le Cameroun et partout
               ailleurs, en étant le sel et la lumière de la terre et un exemple
-              pour la societe.
+              pour la société.
             </p>
           </div>
         </div>

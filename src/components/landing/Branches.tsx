@@ -1,5 +1,6 @@
 // src/components/landing/Branches.tsx
 'use client';
+import Link from 'next/link';
 import { MapPin, Phone, Users } from 'lucide-react';
 
 const branches = [
@@ -10,6 +11,7 @@ const branches = [
     phone: '+237 612 345 678',
     leader: 'Rev HERVE',
     members: '500+',
+    image: '/daddy.jpeg',
   },
   {
     region: 'Douala',
@@ -18,6 +20,7 @@ const branches = [
     phone: '+237 611 234 567',
     leader: 'Reverand ASHU UNDERSTANDING',
     members: '350+',
+    image: '/daddy.jpeg',
   },
   {
     region: 'Bafoussam',
@@ -26,6 +29,7 @@ const branches = [
     phone: '+237 610 123 456',
     leader: 'Reverand ARMEL TCHOUATEN',
     members: '200+',
+    image: '/daddy.jpeg',
   },
   {
     region: 'Bertoua',
@@ -34,6 +38,7 @@ const branches = [
     phone: '+237 609 876 543',
     leader: 'Reverand FESTUS MOUFORZA',
     members: '80+',
+    image: '/daddy.jpeg',
   },
   {
     region: 'Ebolowa',
@@ -42,6 +47,7 @@ const branches = [
     phone: '+237 608 765 432',
     leader: 'Reverand ZEDANG & HERVE',
     members: '120+',
+    image: '/daddy.jpeg',
   },
   {
     region: 'Yokaduma',
@@ -50,14 +56,16 @@ const branches = [
     phone: '+237 607 654 321',
     leader: 'Pasteur Mahamat Saleh',
     members: '90+',
+    image: '/daddy.jpeg',
   },
 ];
 
 export default function Branches() {
   return (
-    <section id="branches" className="bg-muted relative overflow-hidden py-20">
-      <div className="bg-primary/10 absolute top-0 right-0 h-64 w-64 translate-x-1/2 -translate-y-1/2 rounded-full"></div>
-      <div className="bg-secondary/10 absolute bottom-0 left-0 h-48 w-48 -translate-x-1/2 translate-y-1/2 rounded-full"></div>
+    <section id="branches" className="relative overflow-hidden py-24">
+      <div className="from-muted to-background absolute inset-0 bg-gradient-to-b"></div>
+      <div className="bg-primary/10 absolute top-0 right-0 h-64 w-64 translate-x-1/2 -translate-y-1/2 rounded-full blur-2xl"></div>
+      <div className="bg-secondary/10 absolute bottom-0 left-0 h-48 w-48 -translate-x-1/2 translate-y-1/2 rounded-full blur-2xl"></div>
 
       <div className="relative z-10 mx-auto max-w-7xl px-4">
         <div className="animate-fade-in-up mb-16 text-center opacity-0">
@@ -78,12 +86,12 @@ export default function Branches() {
           {branches.map((branch, index) => (
             <div
               key={index}
-              className="group animate-fade-in-up hover:border-primary/20 rounded-2xl border border-transparent bg-white p-6 opacity-0 shadow-lg transition-all hover:-translate-y-2 hover:shadow-2xl"
+              className="group animate-fade-in-up rounded-2xl bg-white/50 p-6 opacity-0 shadow-lg backdrop-blur-sm transition-all hover:-translate-y-2 hover:shadow-2xl dark:bg-gray-800/50"
               style={{ animationDelay: `${0.2 + index * 0.1}s` }}
             >
               <div className="mb-4 flex items-start justify-between">
                 <div>
-                  <h3 className="text-destructive group-hover:text-primary text-xl font-bold transition-colors">
+                  <h3 className="text-foreground group-hover:text-primary text-xl font-bold transition-colors">
                     {branch.region}
                   </h3>
                   <p className="text-muted-foreground flex items-center gap-1 text-sm">
@@ -111,7 +119,7 @@ export default function Branches() {
                   </span>{' '}
                   {branch.leader}
                 </p>
-                <div className="border-t border-gray-200 pt-3">
+                <div className="border-t border-gray-200 pt-3 dark:border-gray-700">
                   <span className="text-primary inline-flex items-center gap-1 font-bold">
                     <Users className="h-4 w-4" />
                     {branch.members} membres
@@ -126,9 +134,12 @@ export default function Branches() {
           className="animate-fade-in-up mt-16 text-center opacity-0"
           style={{ animationDelay: '0.8s' }}
         >
-          <button className="bg-primary text-primary-foreground rounded-xl px-10 py-4 font-bold shadow-lg transition-all hover:scale-105 hover:shadow-xl">
+          <Link
+            href="/dashboard/programmes"
+            className="bg-primary text-primary-foreground inline-block rounded-xl px-10 py-4 font-bold shadow-lg transition-all hover:scale-105 hover:shadow-xl"
+          >
             Voir Toutes les Branches
-          </button>
+          </Link>
         </div>
       </div>
     </section>
