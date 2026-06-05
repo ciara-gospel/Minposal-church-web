@@ -4,5 +4,8 @@
     "eslint:recommended",
     "plugin:@typescript-eslint/recommended",
     "prettier"
-  ]
+  ],
+  "rules": {
+    "react-hooks/set-state-in-effect": "off"
+  }
 }

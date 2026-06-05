@@ -1,28 +1,29 @@
 // src/components/landing/AboutUs.tsx
 'use client';
 import Image from 'next/image';
+import Link from 'next/link';
 
 export default function AboutUs() {
   return (
-    <section id="about" className="bg-muted relative overflow-hidden py-20">
-      {/* Decorative elements */}
-      <div className="bg-primary/10 absolute top-0 right-0 h-64 w-64 translate-x-1/2 -translate-y-1/2 rounded-full"></div>
-      <div className="bg-secondary/10 absolute bottom-0 left-0 h-48 w-48 -translate-x-1/2 translate-y-1/2 rounded-full"></div>
+    <section id="about" className="relative overflow-hidden py-24">
+      <div className="from-background to-muted/30 absolute inset-0 bg-gradient-to-b"></div>
+      <div className="bg-primary/10 absolute top-0 right-0 h-64 w-64 translate-x-1/2 -translate-y-1/2 rounded-full blur-2xl"></div>
+      <div className="bg-secondary/10 absolute bottom-0 left-0 h-48 w-48 -translate-x-1/2 translate-y-1/2 rounded-full blur-2xl"></div>
 
-      <div className="mx-auto max-w-7xl px-4">
+      <div className="relative z-10 mx-auto max-w-7xl px-4">
         <div className="grid items-center gap-12 md:grid-cols-2">
-          {/* Image section */}
           <div
             className="animate-fade-in-left relative opacity-0"
             style={{ animationDelay: '0.2s' }}
           >
-            <div className="relative h-[400px] overflow-hidden rounded-2xl shadow-2xl">
+            <div className="relative h-[400px] overflow-hidden rounded-3xl shadow-2xl">
               <Image
                 src="/daddy.jpeg"
                 alt="À propos de Minposal"
                 fill
-                className="object-cover transition-transform duration-500 hover:scale-105"
+                className="object-cover transition-transform duration-700 hover:scale-110"
               />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
             </div>
             <div className="bg-primary text-primary-foreground animate-float absolute -right-6 -bottom-6 rounded-xl p-6 shadow-xl">
               <p className="text-3xl font-bold">15+</p>
@@ -30,7 +31,6 @@ export default function AboutUs() {
             </div>
           </div>
 
-          {/* Content section */}
           <div
             className="animate-fade-in-right opacity-0"
             style={{ animationDelay: '0.4s' }}
@@ -57,21 +57,21 @@ export default function AboutUs() {
 
             <div className="mb-8 grid grid-cols-3 gap-4">
               <div
-                className="bg-background animate-scale-in rounded-xl p-4 text-center opacity-0 shadow-md"
+                className="animate-scale-in rounded-xl bg-white/70 p-4 text-center opacity-0 shadow-md backdrop-blur-sm transition-all hover:scale-105 dark:bg-gray-800/70"
                 style={{ animationDelay: '0.6s' }}
               >
                 <p className="text-primary text-2xl font-bold">500+</p>
                 <p className="text-muted-foreground text-sm">Membres</p>
               </div>
               <div
-                className="bg-background animate-scale-in rounded-xl p-4 text-center opacity-0 shadow-md"
+                className="animate-scale-in rounded-xl bg-white/70 p-4 text-center opacity-0 shadow-md backdrop-blur-sm transition-all hover:scale-105 dark:bg-gray-800/70"
                 style={{ animationDelay: '0.7s' }}
               >
                 <p className="text-secondary text-2xl font-bold">50+</p>
                 <p className="text-muted-foreground text-sm">Leaders</p>
               </div>
               <div
-                className="bg-background animate-scale-in rounded-xl p-4 text-center opacity-0 shadow-md"
+                className="animate-scale-in rounded-xl bg-white/70 p-4 text-center opacity-0 shadow-md backdrop-blur-sm transition-all hover:scale-105 dark:bg-gray-800/70"
                 style={{ animationDelay: '0.8s' }}
               >
                 <p className="text-destructive text-2xl font-bold">100+</p>
@@ -79,9 +79,12 @@ export default function AboutUs() {
               </div>
             </div>
 
-            <button className="bg-secondary text-secondary-foreground rounded-xl px-8 py-3 font-bold shadow-lg transition-all hover:scale-105 hover:shadow-xl">
+            <Link
+              href="#contact"
+              className="bg-secondary text-secondary-foreground inline-block rounded-xl px-8 py-3 font-bold shadow-lg transition-all hover:scale-105 hover:shadow-xl"
+            >
               En savoir plus sur nous
-            </button>
+            </Link>
           </div>
         </div>
       </div>

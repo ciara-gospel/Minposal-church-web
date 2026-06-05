@@ -1,7 +1,9 @@
-// src/components/landing/Hero.tsx
+// src/components/landing/Hero.tsx - Version améliorée
 'use client';
 import Image from 'next/image';
+import Link from 'next/link';
 import { useState, useEffect } from 'react';
+import { Calendar, PlayCircle } from 'lucide-react';
 
 export default function Hero() {
   const [displayText, setDisplayText] = useState('');
@@ -23,33 +25,35 @@ export default function Hero() {
   }, []);
 
   return (
-    <section className="relative flex min-h-[85vh] items-center justify-center overflow-hidden">
-      {/* 1. Image de fond avec Next/Image */}
+    <section className="relative flex min-h-[90vh] items-center justify-center overflow-hidden">
       <div className="absolute inset-0 -z-20">
         <Image
           src="/daddy.jpeg"
           alt="Arrière-plan Église Minposal"
           fill
           priority
-          className="object-cover"
+          className="animate-float scale-105 object-cover"
         />
       </div>
 
-      {/* 2. Overlay pour la lisibilité */}
-      <div className="absolute inset-0 -z-10 bg-black/65 backdrop-blur-[1px]"></div>
+      <div className="absolute inset-0 -z-10 bg-gradient-to-b from-black/70 via-black/50 to-black/80"></div>
 
-      {/* 3. Contenu principal */}
+      <div className="from-background absolute top-0 left-0 -z-5 h-32 w-full bg-gradient-to-b to-transparent"></div>
+
       <div className="relative mx-auto max-w-7xl px-4 text-center text-white">
-        {/* Définition du ministère en petit au-dessus du titre */}
-        <p
-          className="text-primary animate-fade-in-up text-m mb-4 font-bold tracking-[0.2em] uppercase opacity-0"
-          style={{ animationDelay: '0.2s' }}
+        <div
+          className="bg-primary/20 animate-fade-in-up mb-6 inline-flex items-center gap-2 rounded-full px-4 py-2 backdrop-blur-sm"
+          style={{ animationDelay: '0.1s' }}
         >
-          Ministère des Portes du Salut et de Louanges
-        </p>
+          <span className="text-primary text-xs font-bold">GSPM</span>
+          <span className="bg-primary h-1 w-1 rounded-full"></span>
+          <p className="text-primary text-sm font-bold tracking-widest uppercase">
+            Ministère des Portes du Salut et de Louanges
+          </p>
+        </div>
 
-        <h1 className="mb-6 min-h-[1.2em] text-5xl leading-tight font-extrabold lg:text-7xl">
-          <span className="inline-block text-left">
+        <h1 className="mb-6 min-h-[1.2em] text-4xl leading-tight font-extrabold md:text-6xl lg:text-7xl">
+          <span className="inline-block">
             <span className="typing-text text-white">
               {displayText.split('MINPOSAL')[0]}
             </span>
@@ -72,19 +76,42 @@ export default function Hero() {
 
         <div
           className="animate-fade-in-up flex flex-col justify-center gap-4 opacity-0 sm:flex-row"
-          style={{ animationDelay: '1.2s' }}
+          style={{ animationDelay: '1s' }}
         >
-          <button className="bg-primary text-primary-foreground animate-pulse-glow rounded-xl px-8 py-4 font-bold shadow-lg transition-all hover:scale-105">
+          <Link
+            href="/dashboard/programmes"
+            className="bg-primary text-primary-foreground animate-pulse-glow flex items-center gap-2 rounded-xl px-8 py-4 font-bold shadow-lg transition-all hover:scale-105 hover:shadow-xl"
+          >
+            <Calendar className="h-5 w-5" />
             Nos Programmes
-          </button>
-          <button className="rounded-xl border-2 border-white/80 px-8 py-4 font-bold text-white transition-all hover:scale-105 hover:bg-white/10">
-            En savoir plus
-          </button>
+          </Link>
+          <Link
+            href="/dashboard/messages"
+            className="flex items-center gap-2 rounded-xl border-2 border-white/80 px-8 py-4 font-bold text-white transition-all hover:scale-105 hover:bg-white/10"
+          >
+            <PlayCircle className="h-5 w-5" />
+            Messages
+          </Link>
+        </div>
+
+        <div
+          className="animate-fade-in-up mt-16 flex justify-center gap-8 opacity-0"
+          style={{ animationDelay: '1.4s' }}
+        >
+          <div className="text-center">
+            <p className="text-primary text-3xl font-bold">500+</p>
+            <p className="text-sm text-gray-300">Membres</p>
+          </div>
+          <div className="text-center">
+            <p className="text-secondary text-3xl font-bold">15+</p>
+            <p className="text-sm text-gray-300">Années</p>
+          </div>
+          <div className="text-center">
+            <p className="text-3xl font-bold text-white">6</p>
+            <p className="text-sm text-gray-300">Branches</p>
+          </div>
         </div>
       </div>
-
-      {/* 4. Effet de transition vers la section suivante */}
-      <div className="from-background absolute bottom-0 left-0 -z-10 h-32 w-full bg-gradient-to-t to-transparent"></div>
     </section>
   );
 }
