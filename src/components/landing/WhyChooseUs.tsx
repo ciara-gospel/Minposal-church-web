@@ -14,13 +14,13 @@ const features: Feature[] = [
     icon: BookOpen,
     title: 'Enseignement Biblique',
     description:
-      'Des sermons approfondis et des études qui renforcent votre foi et votre compréhension de la parole de Dieu.',
+      'Des enseignements approfondis et des études qui renforcent votre foi et votre compréhension de la parole de Dieu.',
   },
   {
     icon: Heart,
     title: 'Communauté Accueillante',
     description:
-      'Une famille spirituelle chaleureuse où chacun se sent valorisé et intégré, peu importe son parcours.',
+      'Une famille spirituelle chaleureuse où chacun se sent valorisé et intégré.',
   },
   {
     icon: Shield,
@@ -32,13 +32,13 @@ const features: Feature[] = [
     icon: Music,
     title: 'Louange et Adoration',
     description:
-      "Des moments d'adoration puissant et authentique pour rencontrer la présence de Dieu.",
+      "Des moments d'adoration puissant et authentique pour entrer dans la présence de Dieu.",
   },
   {
     icon: Users,
     title: 'Groupes de Vie',
     description:
-      'Des petites cellules où vous pouvez grandir ensemble et vivre des relations authentiques.',
+      'Des rassemblements où vous pouvez grandir ensemble et vivre des relations authentiques.',
   },
   {
     icon: Zap,
@@ -67,7 +67,7 @@ export default function WhyChooseUs() {
             Vies
           </h2>
           <p className="text-muted-foreground mx-auto max-w-2xl text-lg">
-            Découvrez ce qui fait de Minposal un lieu unique où chacun peut
+            Découvrez ce qui fait du Minposal un lieu unique où chacun peut
             grandir spirituellement et trouver sa place dans la famille de Dieu.
           </p>
         </div>
